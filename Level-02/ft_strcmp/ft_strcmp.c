@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 17:48:29 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/11 19:01:22 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/11 18:59:06 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/11 19:22:30 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_atoi(const char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	int	result;
-	int	sign;
 
 	i = 0;
-	result = 0;
-	sign = 1;
-	if (!str || !str[i])
-		return (0);
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
+	while (s1[i] || s2[i])
 	{
-		sign *= -1;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (result * sign);
+	return (0);
 }

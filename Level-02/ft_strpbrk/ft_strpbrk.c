@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 17:48:29 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/11 19:01:22 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/11 21:51:53 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/11 22:31:55 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
-int	ft_atoi(const char *str)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
 	int	i;
-	int	result;
-	int	sign;
+	int	j;
 
-	i = 0;
-	result = 0;
-	sign = 1;
-	if (!str || !str[i])
-		return (0);
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
+	if (!s1 || !s2)
+		return (NULL);
+	j = 0;
+	while (s2[j])
 	{
-		sign *= -1;
-		i++;
+		i = 0;
+		while (s1[i] && s1[i] != s2[j])
+			i++;
+		if (s1[i] == s2[j])
+			return (&(s1[i]);
+		j++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	return (NULL);
+}
+
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	char	*s;
+
+	if (argc == 3)
 	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		s = ft_strpbrk(argv[1], argv[2]);
+		printf("%s", s);
 	}
-	return (result * sign);
+	return (0);
 }

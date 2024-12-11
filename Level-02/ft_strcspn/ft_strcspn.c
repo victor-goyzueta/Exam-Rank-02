@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 17:48:29 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/11 19:01:22 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/11 19:23:12 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/11 21:22:23 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_atoi(const char *str)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	int	i;
-	int	result;
-	int	sign;
-
+	size_t	b;
+	size_t	i;
+	size_t	j;
+	
+	b = 0;
 	i = 0;
-	result = 0;
-	sign = 1;
-	if (!str || !str[i])
-		return (0);
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
+	while (s[i])
 	{
-		sign *= -1;
+		j = 0;
+		while (reject[j] && s[i] == reject[j])
+		{
+			j++;
+			i++;
+		}
+		if (!reject[j])
+			return (b);
+		b++;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (result * sign);
+	return (b);
 }

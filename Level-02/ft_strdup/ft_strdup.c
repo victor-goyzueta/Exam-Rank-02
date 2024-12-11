@@ -1,41 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 17:48:29 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/11 19:01:22 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/11 21:23:50 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/11 21:49:58 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-int	ft_atoi(const char *str)
+size_t	ft_strlen(char *s)
 {
 	int	i;
-	int	result;
-	int	sign;
 
 	i = 0;
-	result = 0;
-	sign = 1;
-	if (!str || !str[i])
+	if (!s[i])
 		return (0);
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	while (s[i])
 		i++;
-	if (str[i] == '-')
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*cpy;
+	size_t	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	if (!src)
+		return (NULL);
+	len = ft_strlen(src);
+	cpy = malloc(sizeof(char) * (len + 1));
+	if (!cpy)
+		return (NULL);
+	while (src[i])
 	{
-		sign *= -1;
+		cpy[i] = src[i];
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (result * sign);
+	cpy[i] = '\0';
+	return (cpy);
+}
+
+int	main()
+{
+	char	*src = "Hello, world!";
+	char	*cpy;
+
+	cpy = ft_strdup(src);
+	printf("%s", cpy);
+	return (0);
 }
