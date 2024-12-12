@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strspn.c                                        :+:      :+:    :+:   */
+/*   last_word.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 13:15:06 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/12 14:56:01 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/12 15:43:48 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/12 17:14:25 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strspn(const char *s, const char *accept)
-{
-	size_t	b;
-	int		i;
-	int		j;
-
-	if (!s || !accept)
-		return (0);
-	i = 0;
-	b = 0;
-	while(s[i])
-	{
-		j = 0;
-		while (accept[j] && s[i] != accept[j])
-			j++;
-		if (!accept[j])
-			return (b);
-		b++;
-		i++;
-	}
-	return (b);
-}
-
 #include <unistd.h>
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
-	if (argc == 3)
+	int	i;
+	int	start;
+	int	end;
+
+	i = 0;
+	start = 0;
+	end = 0;
+	if (argc == 2)
 	{
-		printf("%zu", ft_strspn(argv[1], argv[2]));
+		while (argv[1][i])
+			i++;
+		i--;
+		while ((argv[1][i] >= 9 && argv[1][i] <= 13) || argv[1][i] == 32)
+			i--;
+		end = i;
+		while ((argv[1][i] < 9) || (argv[1][i] > 13) || (argv[1][i] == 32))
+			i--;
+		start = i + 1;
+		while (start <= end)
+		{
+			write(1, &argv[1][start], 1);
+			start++;
+		}
 	}
+	write (1, "\n", 1);
 	return (0);
 }

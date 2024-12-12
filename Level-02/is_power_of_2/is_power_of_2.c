@@ -1,48 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strspn.c                                        :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 13:15:06 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/12 14:56:01 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/12 15:25:37 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/12 15:42:02 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strspn(const char *s, const char *accept)
+int	is_power_of_2(unsigned int n)
 {
-	size_t	b;
-	int		i;
-	int		j;
-
-	if (!s || !accept)
+	if (n == 0)
 		return (0);
-	i = 0;
-	b = 0;
-	while(s[i])
-	{
-		j = 0;
-		while (accept[j] && s[i] != accept[j])
-			j++;
-		if (!accept[j])
-			return (b);
-		b++;
-		i++;
-	}
-	return (b);
+	return (n & (n - 1)) == 0;
 }
 
-#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
-	if (argc == 3)
+	int	result;
+	int	nbr;
+
+	if (argc == 2)
 	{
-		printf("%zu", ft_strspn(argv[1], argv[2]));
+		nbr = atoi(argv[1]);
+		result = is_power_of_2(nbr);
+		if (result)
+			printf("Yes");
+		else
+			printf("Nope");
 	}
 	return (0);
 }
