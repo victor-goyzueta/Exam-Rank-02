@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 21:51:53 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/12 11:42:34 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/12 13:28:24 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ char	*ft_strpbrk(const char *s1, const char *s2)
 	}
 	return (NULL);
 }
-
