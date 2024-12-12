@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 21:23:50 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/11 21:49:58 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:42:24 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,4 @@ char	*ft_strdup(char *src)
 	}
 	cpy[i] = '\0';
 	return (cpy);
-}
-
-int	main()
-{
-	char	*src = "Hello, world!";
-	char	*cpy;
-
-	cpy = ft_strdup(src);
-	printf("%s", cpy);
-	return (0);
 }

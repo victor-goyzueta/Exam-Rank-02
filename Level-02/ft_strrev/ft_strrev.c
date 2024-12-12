@@ -1,34 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 21:51:53 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/12 11:42:34 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/12 11:43:57 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/12 11:44:04 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strpbrk(const char *s1, const char *s2)
+char	*ft_strrev(char *str)
 {
 	int	i;
 	int	j;
+	char	tmp;
 
-	if (!s1 || !s2)
+	i = 0;
+	if (!str)
 		return (NULL);
+	while (str[i])
+		i++;
 	j = 0;
-	while (s2[j])
+	while (i)
 	{
-		i = 0;
-		while (s1[i] && s1[i] != s2[j])
-			i++;
-		if (s1[i] == s2[j])
-			return ((char *)s1 + i);
+		tmp = str[j];
+		str[j] = str[i];
+		str[i] = tmp;
+		i--;
 		j++;
-	}
-	return (NULL);
+	}	
+	return (str);
 }
 
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		printf("%s", argv[1]);
+		printf ("%s", ft_strrev(argv[1));
+	}
+	return (0);
+}

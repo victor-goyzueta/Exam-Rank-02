@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camel_to_snake.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:24:59 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/11 17:01:14 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/12 12:30:37 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc == 2)
 	{
-		while (argv[1][i] && (argv[1][0] >= 'a' && argv[1][i] <= 'z'))
+		while (argv[1][i] && (argv[1][0] >= 'a' && argv[1][0] <= 'z'))
 		{
 			if (is_alpha(argv[1][i]))
 			{
