@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 13:15:06 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/12 14:56:01 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:08:22 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,16 @@ size_t	ft_strspn(const char *s, const char *accept)
 	int		i;
 	int		j;
 
-	if (!s || !accept)
-		return (0);
-	i = 0;
 	b = 0;
-	while(s[i])
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		j = 0;
-		while (accept[j] && s[i] != accept[j])
-			j++;
-		if (!accept[j])
+		if (!accept[j] || (s[i] != accept[j]))
 			return (b);
 		b++;
 		i++;
+		j++;
 	}
 	return (b);
-}
-
-#include <unistd.h>
-#include <stdio.h>
-
-int	main(int argc, char **argv)
-{
-	if (argc == 3)
-	{
-		printf("%zu", ft_strspn(argv[1], argv[2]));
-	}
-	return (0);
 }
