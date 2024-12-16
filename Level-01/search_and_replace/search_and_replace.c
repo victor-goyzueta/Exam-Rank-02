@@ -3,32 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   search_and_replace.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:47:50 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/11 14:10:02 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:38:58 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	putchar(int c)
+void	ft_putchar(int c)
 {
 	write(1, &c, 1);
-}
-
-void	putstr(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s[i])
-		return ;
-	while (s[i])
-	{
-		putchar(s[i]);
-		i++;
-	}
 }
 
 int	main(int argc, char **argv)
@@ -38,14 +24,14 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc == 4)
 	{
-		while (argv[1][i])
+		while (argv[1][i] && !argv[2][1] && !argv[3][1])
 		{
-			if (argv[1][i] == argv[2][0] && !argv[2][1])
+			if (argv[1][i] == argv[2][0])
 				argv[1][i] = argv[3][0];
+			ft_putchar(argv[1][i]);
 			i++;
 		}
-		putstr(argv[1]);
 	}
-	putchar('\n');
+	ft_putchar('\n');
 	return (0);
 }
