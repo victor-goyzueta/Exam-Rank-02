@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hidenp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoyzuet <vgoyzuet@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 18:02:28 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/14 18:37:21 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:32:10 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ int	main(int argc, char **argv)
 {
 	int	i;
 	int	j;
-
-	i = 0;
-	j = 0;
+	
 	if (argc == 3)
 	{
 		i = 0;
+		j = 0;
 		while (argv[2][i])
 		{
 			if (argv[1][j] == argv[2][i])

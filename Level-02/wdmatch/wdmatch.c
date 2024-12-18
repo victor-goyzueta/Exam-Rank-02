@@ -6,23 +6,11 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:13:11 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/18 21:17:35 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:32:08 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-size_t	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i])
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int	main(int argc, char **argv)
 {
