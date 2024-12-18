@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:57:11 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/16 16:57:15 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:33:54 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@ int	is_lower(int c)
 int	is_upper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
-}
-
-int	is_alpha(int c)
-{
-	if (is_lower(c) || is_upper(c))
 		return (1);
 	return (0);
 }
