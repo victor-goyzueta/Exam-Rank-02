@@ -1,46 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   wdmatch.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 14:23:24 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/18 15:46:14 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/18 19:13:11 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/18 19:27:19 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	is_print_wo_space(int c)
-{
-	if (c >= 33 && c <= 126)
-		return (1);
-	return (0);
-}
-
-int	is_space_or_tab(int c)
-{
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	return (0);
-}
-
-int	main(int argc, char **argv)
+size_t	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (argc == 2)
+	if (str[i])
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
+}
+
+
+int main(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (argc == 3)
 	{
-		while (is_space_or_tab(argv[1][i]))
-			i++;
-		while (is_print(argv[1][i])) 
+		if (ft_strlen(argv[1]) > ft_strlen(argv[2]))
 		{
-			write (1, &argv[1][i], 1);
+			write(1, "\n", 1);
+			return (0);
+		}
+		while (argv[1][i])
+		{
+			j = 0;
+			while (argv[2][j])
+				j++;
 			i++;
 		}
 	}
-	write (1, "\n", 1);
+	write(1, "\n", 1);
 	return (0);
 }

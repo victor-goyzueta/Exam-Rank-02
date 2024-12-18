@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_power_of_2.c                                    :+:      :+:    :+:   */
+/*   reverse_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 15:25:37 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/18 15:35:34 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/18 18:12:34 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/18 18:46:56 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_power_of_2(unsigned int n)
+unsigned char	reverse_bits(unsigned char octet)
 {
-	if (n == 0)
-		return (0);
-	return ((n & (n - 1)) == 0);
+	int i;
+	unsigned char res;
+
+	i = 8;
+	res = 0;
+	while (i)
+	{
+		res = res * 2 + (octet % 2);
+		octet = octet / 2;
+		i--;
+	}
+	return (res);
 }

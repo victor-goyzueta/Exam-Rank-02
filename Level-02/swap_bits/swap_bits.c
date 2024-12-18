@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_power_of_2.c                                    :+:      :+:    :+:   */
+/*   swap_bits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 15:25:37 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/18 15:35:34 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/18 18:25:51 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/18 18:47:06 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_power_of_2(unsigned int n)
+unsigned char	swap_bits(unsigned char octet)
 {
-	if (n == 0)
-		return (0);
-	return ((n & (n - 1)) == 0);
+	return ((octet >> 4) | (octet << 4));
 }

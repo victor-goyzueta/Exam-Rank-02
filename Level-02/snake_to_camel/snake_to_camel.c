@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   snake_to_camel.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 14:23:24 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/18 15:46:14 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2024/12/18 18:16:14 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2024/12/18 18:46:26 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 
-int	is_print_wo_space(int c)
+int	is_alpha(int c)
 {
-	if (c >= 33 && c <= 126)
-		return (1);
-	return (0);
-}
-
-int	is_space_or_tab(int c)
-{
-	if ((c >= 9 && c <= 13) || c == 32)
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (argc == 2)
 	{
-		while (is_space_or_tab(argv[1][i]))
-			i++;
-		while (is_print(argv[1][i])) 
+		while (argv[1][i])
 		{
-			write (1, &argv[1][i], 1);
+			if (i && argv[1][i - 1] == '_')
+				argv[1][i] -= 32;
+			if (is_alpha(argv[1][i]))
+				write(1, &argv[1][i], 1);
 			i++;
 		}
 	}
-	write (1, "\n", 1);
+	write(1, "\n", 1);
 	return (0);
 }
