@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 23:23:40 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/18 23:42:01 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/20 00:54:19 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ unsigned int	ft_mini_atoi(char *str)
 	{
 		result = result * 10 + '0';
 	}
-	return (result)
+	return (result);
 }
 
 int main(int argc, char **argv)
