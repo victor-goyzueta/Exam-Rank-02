@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:12:34 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/20 00:57:15 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2024/12/20 01:14:24 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,15 @@ unsigned char	reverse_bits(unsigned char octet)
 	i = 7;
 	j = 0;
 	result = 0;
-	if (octet == 0)
-		return (0);
 	while (j <= 7)
+	{
+		if (octet >= base[i])
 		{
-			if (octet >= base[i])
-			{
-				result += base[j];
-				octet -= base[i];
-			}
-			i--;
-			j++;
+			result += base[j];
+			octet -= base[i];
+		}
+		i--;
+		j++;
 	}
 	return (result);
 }
