@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex.c                                        :+:      :+:    :+:   */
+/*   tab_mult.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 18:50:52 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/08 11:20:43 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/01/08 12:36:51 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/01/08 12:52:23 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,57 @@ void	ft_putchar(int c)
 	write(1, &c, 1);
 }
 
-int	ft_atoi(char *str)
+void	ft_putstr(char *str)
 {
-	int	result;
 	int	i;
 
-	result = 0;
+	if (!str[i])
+		return ;
 	i = 0;
 	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
+void	ft_putnbr(int n)
+{
+	if (n > 9)
+		ft_putnbr(n / 10);
+	ft_putchar(n % 10 + '0');
+}
+
+int	ft_atoi(char *str)
+{
+	int	i;
+	int	sign;
+	int	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	if (str[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (result);
-}
-
-void	print_hex(int	nbr)
-{
-	char	*base_hex;
-	
-	base_hex = "0123456789abcdef";
-	if (nbr >= 16)
-	{
-		print_hex(nbr / 16);
-	}
-	ft_putchar(base_hex[nbr % 16]);
+	return (result * sign);
 }
 
 int	main(int argc, char **argv)
 {
-	int	nbr;
-
-	if (argc == 2 && argv[1])
+	if (argc == 2)
 	{
-		nbr = ft_atoi(argv[1]);
-		print_hex(nbr);
+		//
 	}
-	ft_putchar("\n");
+	ft_putchar('\n');
 	return (0);
 }

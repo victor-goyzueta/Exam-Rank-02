@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex.c                                        :+:      :+:    :+:   */
+/*   paramsum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 18:50:52 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/08 11:20:43 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/01/08 11:21:18 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/01/08 11:37:29 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,20 @@ void	ft_putchar(int c)
 	write(1, &c, 1);
 }
 
-int	ft_atoi(char *str)
+void	ft_putnbr(int n)
 {
-	int	result;
-	int	i;
-
-	result = 0;
-	i = 0;
-	while (str[i])
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result);
+	if (n > 9)
+		ft_putnbr(n / 10);
+	ft_putchar(n % 10 + '0');
 }
 
-void	print_hex(int	nbr)
+int main(int argc, char **argv)
 {
-	char	*base_hex;
-	
-	base_hex = "0123456789abcdef";
-	if (nbr >= 16)
-	{
-		print_hex(nbr / 16);
-	}
-	ft_putchar(base_hex[nbr % 16]);
-}
+	void	*unused;
 
-int	main(int argc, char **argv)
-{
-	int	nbr;
-
-	if (argc == 2 && argv[1])
-	{
-		nbr = ft_atoi(argv[1]);
-		print_hex(nbr);
-	}
-	ft_putchar("\n");
+	argc--;
+	unused = (void *)argv;
+	ft_putnbr(argc);
+	ft_putchar('\n');
 	return (0);
 }
