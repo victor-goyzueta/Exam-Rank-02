@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inter.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoyzuet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:57:06 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2024/12/17 17:43:43 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:24:56 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,3 @@ int	main(int argc, char **argv)
 	write(1, "\n", 1);
 	return (0);
 }
-
-//$>./inter ddf6vewg64f gtwthgdwthdwfteewhrtag6h4ffdhsd | cat -e
-//df6ewg4$
